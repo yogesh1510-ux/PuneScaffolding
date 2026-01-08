@@ -175,7 +175,7 @@
     }
 
     /* ========== ABOUT SECTION ========== */
-    .about-section {
+    /* .about-section {
       position: relative;
       background: var(--white);
       overflow: hidden;
@@ -189,7 +189,7 @@
       width: 100%;
       height: 4px;
       background: var(--primary-red);
-    }
+    } */
 
     .about-container {
       display: grid;
@@ -1343,6 +1343,575 @@
       margin-top: -63px !important;
     }
   </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* body {
+      background: #f5f5f5;
+      padding: 20px;
+    } */
+
+    .features-container {
+      position: relative;
+      top: 52px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      /* border-radius: 8px; */
+      cursor: pointer;
+      height: 400px;
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.7)
+      );
+      transition: background 0.3s ease;
+    }
+
+    .feature-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 4px 10px 25px 10px;
+      color: white;
+      z-index: 2;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .feature-description {
+      font-size: 12px;
+      display: flex;
+      /* padding: 10px 6px 2px 40px; */
+      /* line-height: 1.6; */
+      opacity: 0.95;
+    }
+
+    .feature-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .feature-card:hover .feature-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.8)
+      );
+    }
+
+    /* Tablet - 3 columns */
+    @media (max-width: 1024px) {
+      .features-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        top: 30px;
+      }
+
+      .feature-card {
+        height: 350px;
+      }
+
+      .feature-title {
+        font-size: 18px;
+      }
+
+      .feature-description {
+        font-size: 12px;
+      }
+    }
+
+    /* Mobile - 2 columns */
+    @media (max-width: 768px) {
+      .features-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        top: 20px;
+      }
+
+      .feature-card {
+        height: 300px;
+      }
+
+      .feature-content {
+        padding: 20px;
+      }
+
+      .feature-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .feature-description {
+        font-size: 11px;
+        line-height: 1.5;
+      }
+    }
+
+    /* Small Mobile - 1 column */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .features-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        top: 10px;
+      }
+
+      .feature-card {
+        height: 280px;
+      }
+
+      .feature-content {
+        padding: 18px;
+      }
+
+      .feature-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .feature-description {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+    }
+  </style>
+
+  <!-- about section  -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* About Section */
+    .about-section {
+      position: relative;
+      width: 100%;
+      background-color: white;
+      padding-top: 64px;
+      overflow: hidden;
+    }
+
+    /* Heading */
+    .about-heading-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 30;
+    }
+
+    .about-heading {
+      display: flex;
+      align-items: center;
+      font-size: 3.75rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .about-heading-red {
+      background-color: #dc2626;
+      color: white;
+      padding: 12px 32px;
+    }
+
+    .about-heading-text {
+      margin-left: 8px;
+    }
+
+    /* Images Container */
+    .about-images-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* About Image */
+    .about-image-wrapper {
+      position: relative;
+      z-index: 20;
+      width: 70%;
+    }
+
+    .about-image {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* About Text Overlay */
+    .about-text-overlay {
+      position: absolute;
+      top: 12%;
+      left: 38%;
+      width: 16%;
+      font-size: 12px;
+      line-height: 1.25;
+      color: #4b5563;
+    }
+
+    /* Black Strip */
+    .black-strip {
+      position: relative;
+      z-index: 10;
+      width: 90%;
+      height: 620px;
+      background-color: black;
+      margin-top: -160px;
+    }
+
+    /* Right Choice */
+    .right-choice-wrapper {
+      position: relative;
+      z-index: 20;
+      width: 70%;
+      margin-top: -208px;
+    }
+
+    .right-choice-text {
+      position: absolute;
+      right: 10%;
+      top: 20%;
+      z-index: 30;
+    }
+
+    .right-choice-heading {
+      font-size: 2.25rem;
+      font-weight: 300;
+      line-height: 1.25;
+    }
+
+    .choice-line1 {
+      color: #bfdbfe;
+    }
+
+    .choice-line2 {
+      color: #93c5fd;
+    }
+
+    .choice-line3 {
+      background-color: #dc2626;
+      color: white;
+      padding: 4px 16px;
+      display: inline-block;
+    }
+
+    .right-choice-image {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Tablet Responsiveness */
+    @media (max-width: 1024px) {
+      .about-heading {
+        font-size: 2.25rem;
+      }
+
+      .about-heading-red {
+        padding: 10px 24px;
+      }
+
+      .about-text-overlay {
+        font-size: 10px;
+        width: 24%;
+        left: 36%;
+      }
+
+      .right-choice-heading {
+        font-size: 1.875rem;
+      }
+
+      .black-strip {
+        height: 480px;
+      }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .about-section {
+        padding-top: 32px;
+      }
+
+      .about-heading-wrapper {
+        margin-bottom: 32px;
+      }
+
+      .about-heading {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-heading-red {
+        padding: 8px 20px;
+      }
+
+      .about-heading-text {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      /* Make images full width on mobile */
+      .about-image-wrapper {
+        width: 95%;
+        position: relative;
+      }
+
+      .right-choice-wrapper {
+        width: 95%;
+      }
+
+      /* Reposition text overlay for mobile - FIXED */
+      .about-text-overlay {
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        background-color: #ffffff;
+        font-size: 14px;
+        margin: 20px auto;
+        z-index: 25;
+        left: 0;
+        top: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #dc2626;
+      }
+
+      /* Adjust black strip */
+      .black-strip {
+        width: 100%;
+        height: 300px;
+        margin-top: 20px;
+      }
+
+      /* Right choice adjustments */
+      .right-choice-wrapper {
+        margin-top: -100px;
+      }
+
+      .right-choice-text {
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 49px;
+        position: relative;
+      }
+
+      .right-choice-heading {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .about-heading {
+        font-size: 1.25rem;
+      }
+
+      .about-heading-red {
+        padding: 6px 16px;
+      }
+
+      .about-text-overlay {
+        font-size: 13px;
+        padding: 16px;
+        width: 92%;
+      }
+
+      .black-strip {
+        height: 150px;
+        margin-top: 20px;
+      }
+
+      .right-choice-wrapper {
+        margin-top: -60px;
+      }
+
+      .right-choice-heading {
+        font-size: 1.125rem;
+      }
+
+      .choice-line3 {
+        padding: 3px 12px;
+      }
+
+      .right-choice-image {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        position: relative;
+        top: -124px;
+        z-index: 9;
+      }
+    }
+  </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .hero-section2 {
+      background-color: #000;
+      width: 100%;
+      height: 700px;
+    }
+
+    .clients-wrapper {
+      width: 100%;
+      display: flex;
+      position: relative;
+      top: -320px;
+      padding: 0 20px;
+    }
+
+    .red-strip {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 40%;
+      transform: translateY(-50%);
+      background-color: #dc2626;
+      padding: 8px 0;
+      z-index: 10;
+    }
+
+    .red-strip h2 {
+      color: white;
+      text-align: right;
+      padding-right: 24px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    .clients-image {
+      width: 70%;
+      margin: 0 auto;
+      display: block;
+      height: auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Tablet screens */
+    @media (max-width: 768px) {
+      .hero-section2 {
+        height: 400px;
+      }
+
+      .clients-wrapper {
+        top: -160px;
+        padding: 0 15px;
+      }
+
+      .red-strip {
+        width: 50%;
+      }
+
+      .red-strip h2 {
+        font-size: 1.25rem;
+        padding-right: 16px;
+      }
+
+      .clients-image {
+        width: 85%;
+      }
+    }
+
+    /* Mobile screens */
+    @media (max-width: 480px) {
+      .hero-section2 {
+        height: 200px;
+      }
+
+      .clients-wrapper {
+        top: -80px;
+        padding: 0 10px;
+      }
+
+      .red-strip {
+        width: 45%;
+        padding: 6px 0;
+      }
+
+      .red-strip h2 {
+        font-size: 1rem;
+        padding-right: 12px;
+      }
+
+      .clients-image {
+        width: 95%;
+      }
+    }
+
+    /* Small mobile screens */
+    @media (max-width: 360px) {
+      .hero-section2 {
+        height: 150px;
+      }
+
+      .clients-wrapper {
+        top: -60px;
+      }
+
+      .red-strip h2 {
+        font-size: 0.875rem;
+        padding-right: 8px;
+      }
+
+      .clients-image {
+        width: 100%;
+      }
+    }
+  </style>
   <body>
     <!-- home section -->
     <div class="banner">
@@ -1379,68 +1948,67 @@
       </div>
     </div>
     <!-- ABOUT + RIGHT CHOICE WRAPPER -->
-    <section class="relative w-full bg-white pt-16 overflow-hidden">
+    <section class="about-section">
       <!-- Heading -->
-      <div class="flex justify-center mb-12 relative z-30">
-        <h1
-          class="flex items-center text-3xl md:text-4xl lg:text-6xl font-light"
-        >
-          <span class="bg-red-600 text-white px-8 py-3 header-about-text"
-            >ABOUT</span
-          >
-          <span class="ml-2 header-about">THE COMPANY</span>
+      <div class="about-heading-wrapper">
+        <h1 class="about-heading">
+          <span class="about-heading-red">ABOUT</span>
+          <span class="about-heading-text">THE COMPANY</span>
         </h1>
       </div>
+
       <!-- IMAGE STACK -->
-      <div class="relative w-full flex flex-col items-center">
+      <div class="about-images-container">
         <!-- ABOUT IMAGE -->
-        <div class="relative z-20 w-[70%]">
-          <img src="img/AboutCompany.png" class="w-full object-cover" alt="" />
+        <div class="about-image-wrapper">
+          <img
+            src="img/AboutCompany.png"
+            class="about-image"
+            alt="About Company"
+          />
 
           <!-- ABOUT TEXT OVER IMAGE -->
-          <div
-            class="absolute top-[12%] left-[38%] w-[22%] text-[12px] leading-relaxed text-gray-600"
-          >
+          <div class="about-text-overlay">
             <p>
               A backbone of real estate industry, scaffolding is the unsung hero
               that ensures safety and smooth execution of any construction.
               Scaffolding has evolved from the use of wood and bamboo to high
               quality metal fittings, platforms and pipes. And with a vision to
               provide superior quality scaffolding that meets highest safety
-              standards. Pune Scaffolding was incepted.
-              <br /><br />
-              Catering to some esteemed names of construction industry, Pune
-              Scaffolding is now a respectable organization known for quality
-              products and services. From undertaking turnkey projects to supply
-              scaffolding equipment to consulting and assembling it, Pune
-              Scaffolding ensures that it adheres to highest standards of
-              safety, quality and service.
+              standards. Pune Scaffolding was incepted. Catering to some
+              esteemed names of construction industry, Pune Scaffolding is now a
+              respectable organization known for quality products and services.
+              From undertaking turnkey projects to supply scaffolding equipment
+              to consulting and assembling it, Pune Scaffolding ensures that it
+              adheres to highest standards of safety, quality and service.
             </p>
           </div>
         </div>
 
         <!-- BLACK STRIP (WIDER THAN IMAGE) -->
-        <div class="relative z-10 w-[90%] h-[620px] bg-black -mt-40"></div>
+        <div class="black-strip"></div>
 
         <!-- RIGHT CHOICE IMAGE -->
-        <div class="relative z-20 w-[70%] -mt-52">
+        <div class="right-choice-wrapper">
           <!-- Text overlay -->
-          <div class="absolute right-[10%] top-[20%] z-30">
-            <h2 class="text-4xl font-light leading-tight">
-              <span class="text-blue-200">WHAT MAKES</span><br />
-              <span class="text-blue-300">PUNE SCAFFOLDING</span><br />
-              <span class="bg-red-600 text-white px-4 py-1 inline-block">
-                THE RIGHT CHOICE?
-              </span>
+          <div class="right-choice-text">
+            <h2 class="right-choice-heading">
+              <span class="choice-line1">WHAT MAKES</span><br />
+              <span class="choice-line2">PUNE SCAFFOLDING</span><br />
+              <span class="choice-line3">THE RIGHT CHOICE?</span>
             </h2>
           </div>
 
-          <img src="img/RightChoice.jpg" class="w-full object-cover" alt="" />
+          <img
+            src="img/RightChoice.jpg"
+            class="right-choice-image"
+            alt="Right Choice"
+          />
         </div>
       </div>
     </section>
 
-    <div class="features-container relative top-52">
+    <div class="features-container">
       <!-- Quality -->
       <div class="feature-card">
         <img src="img/Quality.jpg" alt="Quality" />
@@ -1469,7 +2037,10 @@
 
       <!-- 360 Degree Approach -->
       <div class="feature-card">
-        <img src="img/360DegreeApproach.jpg" alt="360 Degree Approach" />
+        <img
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400"
+          alt="360 Degree Approach"
+        />
         <div class="feature-overlay"></div>
         <div class="feature-content">
           <h2 class="feature-title">360 DEGREE<br />APPROACH</h2>
@@ -1484,7 +2055,10 @@
 
       <!-- Certifications -->
       <div class="feature-card">
-        <img src="img/Certification.jpg" alt="Certifications" />
+        <img
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400"
+          alt="Certifications"
+        />
         <div class="feature-overlay"></div>
         <div class="feature-content">
           <h2 class="feature-title">CERTIFI-<br />CATIONS</h2>
@@ -1497,7 +2071,10 @@
 
       <!-- No Maintenance -->
       <div class="feature-card">
-        <img src="img/LowMaintenance.jpg" alt="No Maintenance" />
+        <img
+          src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400"
+          alt="No Maintenance"
+        />
         <div class="feature-overlay"></div>
         <div class="feature-content">
           <h2 class="feature-title">NO<br />MAINTENANCE</h2>
@@ -1510,18 +2087,16 @@
       </div>
     </div>
 
-    <div class="bg-black w-full h-[800px]"></div>
+    <div class="hero-section2"></div>
 
     <!-- clients -->
-    <div class="w-full flex relative -top-80">
+    <div class="clients-wrapper">
       <!-- Red strip -->
-      <div
-        class="absolute top-1/2 left-0 w-[40%] -translate-y-1/2 bg-red-600 py-2"
-      >
-        <h2 class="text-white text-right pr-6">CLIENTS</h2>
+      <div class="red-strip">
+        <h2>CLIENTS</h2>
       </div>
 
-      <img src="img/Clients.jpg" alt="" class="w-[70%] mx-auto" />
+      <img src="img/Clients.jpg" alt="Our Clients" class="clients-image" />
     </div>
 
     <!-- products  -->

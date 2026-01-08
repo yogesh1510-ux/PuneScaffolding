@@ -3,252 +3,342 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Features</title>
+    <title>About Section - Fixed</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Arial, sans-serif;
       }
 
       body {
-        background: #f5f5f5;
-        padding: 20px;
+        font-family: Arial, sans-serif;
       }
 
-      .features-container {
+      /* About Section */
+      .about-section {
         position: relative;
-        top: 52px;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .feature-card {
-        position: relative;
+        width: 100%;
+        background-color: white;
+        padding-top: 64px;
         overflow: hidden;
-        border-radius: 8px;
-        cursor: pointer;
-        height: 400px;
       }
 
-      .feature-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
+      /* Heading */
+      .about-heading-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 48px;
+        position: relative;
+        z-index: 30;
       }
 
-      .feature-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.3),
-          rgba(0, 0, 0, 0.7)
-        );
-        transition: background 0.3s ease;
+      .about-heading {
+        display: flex;
+        align-items: center;
+        font-size: 3.75rem;
+        font-weight: 300;
+        line-height: 1;
       }
 
-      .feature-content {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 25px;
+      .about-heading-red {
+        background-color: #dc2626;
         color: white;
-        z-index: 2;
+        padding: 12px 32px;
       }
 
-      .feature-title {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
+      .about-heading-text {
+        margin-left: 8px;
       }
 
-      .feature-description {
-        font-size: 13px;
-        line-height: 1.6;
-        opacity: 0.95;
+      /* Images Container */
+      .about-images-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .feature-card:hover img {
-        transform: scale(1.05);
+      /* About Image */
+      .about-image-wrapper {
+        position: relative;
+        z-index: 20;
+        width: 70%;
       }
 
-      .feature-card:hover .feature-overlay {
-        background: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.4),
-          rgba(0, 0, 0, 0.8)
-        );
+      .about-image {
+        width: 100%;
+        object-fit: cover;
+        display: block;
       }
 
-      /* Tablet - 3 columns */
+      /* About Text Overlay */
+      .about-text-overlay {
+        position: absolute;
+        top: 12%;
+        left: 38%;
+        width: 16%;
+        font-size: 12px;
+        line-height: 1.25;
+        color: #4b5563;
+      }
+
+      /* Black Strip */
+      .black-strip {
+        position: relative;
+        z-index: 10;
+        width: 90%;
+        height: 620px;
+        background-color: black;
+        margin-top: -160px;
+      }
+
+      /* Right Choice */
+      .right-choice-wrapper {
+        position: relative;
+        z-index: 20;
+        width: 70%;
+        margin-top: -208px;
+      }
+
+      .right-choice-text {
+        position: absolute;
+        right: 10%;
+        top: 20%;
+        z-index: 30;
+      }
+
+      .right-choice-heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        line-height: 1.25;
+      }
+
+      .choice-line1 {
+        color: #bfdbfe;
+      }
+
+      .choice-line2 {
+        color: #93c5fd;
+      }
+
+      .choice-line3 {
+        background-color: #dc2626;
+        color: white;
+        padding: 4px 16px;
+        display: inline-block;
+      }
+
+      .right-choice-image {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Tablet Responsiveness */
       @media (max-width: 1024px) {
-        .features-container {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 15px;
-          top: 30px;
+        .about-heading {
+          font-size: 2.25rem;
         }
 
-        .feature-card {
-          height: 350px;
+        .about-heading-red {
+          padding: 10px 24px;
         }
 
-        .feature-title {
-          font-size: 18px;
+        .about-text-overlay {
+          font-size: 10px;
+          width: 24%;
+          left: 36%;
         }
 
-        .feature-description {
-          font-size: 12px;
+        .right-choice-heading {
+          font-size: 1.875rem;
+        }
+
+        .black-strip {
+          height: 480px;
         }
       }
 
-      /* Mobile - 2 columns */
+      /* Mobile Responsiveness */
       @media (max-width: 768px) {
-        .features-container {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
-          top: 20px;
+        .about-section {
+          padding-top: 32px;
         }
 
-        .feature-card {
-          height: 300px;
+        .about-heading-wrapper {
+          margin-bottom: 32px;
         }
 
-        .feature-content {
+        .about-heading {
+          font-size: 1.5rem;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .about-heading-red {
+          padding: 8px 20px;
+        }
+
+        .about-heading-text {
+          margin-left: 0;
+          margin-top: 8px;
+        }
+
+        /* Make images full width on mobile */
+        .about-image-wrapper {
+          width: 95%;
+          position: relative;
+        }
+
+        .right-choice-wrapper {
+          width: 95%;
+        }
+
+        /* Reposition text overlay for mobile - FIXED */
+        .about-text-overlay {
+          position: relative;
+          width: 100%;
           padding: 20px;
+          background-color: #ffffff;
+          font-size: 14px;
+          margin: 20px auto;
+          z-index: 25;
+          left: 0;
+          top: 0;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          border-left: 4px solid #dc2626;
         }
 
-        .feature-title {
-          font-size: 16px;
-          margin-bottom: 8px;
+        /* Adjust black strip */
+        .black-strip {
+          width: 100%;
+          height: 300px;
+          margin-top: 20px;
         }
 
-        .feature-description {
-          font-size: 11px;
-          line-height: 1.5;
+        /* Right choice adjustments */
+        .right-choice-wrapper {
+          margin-top: -100px;
+        }
+
+        .right-choice-text {
+          padding: 20px;
+          text-align: center;
+          margin-bottom: 49px;
+          position: relative;
+        }
+
+        .right-choice-heading {
+          font-size: 1.5rem;
         }
       }
 
-      /* Small Mobile - 1 column */
+      /* Small Mobile */
       @media (max-width: 480px) {
-        body {
-          padding: 10px;
+        .about-heading {
+          font-size: 1.25rem;
         }
 
-        .features-container {
-          grid-template-columns: 1fr;
-          gap: 15px;
-          top: 10px;
+        .about-heading-red {
+          padding: 6px 16px;
         }
 
-        .feature-card {
-          height: 280px;
-        }
-
-        .feature-content {
-          padding: 18px;
-        }
-
-        .feature-title {
-          font-size: 18px;
-          margin-bottom: 10px;
-        }
-
-        .feature-description {
+        .about-text-overlay {
           font-size: 13px;
-          line-height: 1.6;
+          padding: 16px;
+          width: 92%;
+        }
+
+        .black-strip {
+          height: 150px;
+          margin-top: 20px;
+        }
+
+        .right-choice-wrapper {
+          margin-top: -60px;
+        }
+
+        .right-choice-heading {
+          font-size: 1.125rem;
+        }
+
+        .choice-line3 {
+          padding: 3px 12px;
+        }
+
+        .right-choice-image {
+          width: 100%;
+          object-fit: cover;
+          display: block;
+          position: relative;
+          top: -124px;
+          z-index: 9;
         }
       }
     </style>
   </head>
   <body>
-    <div class="features-container">
-      <!-- Quality -->
-      <div class="feature-card">
-        <img src="img/Quality.jpg" alt="Quality" />
-        <div class="feature-overlay"></div>
-        <div class="feature-content">
-          <h2 class="feature-title">QUALITY</h2>
-          <p class="feature-description">
-            Made with superior quality steel, all the material is sturdy, safe
-            and easy to install.
-          </p>
-        </div>
+    <!-- ABOUT + RIGHT CHOICE WRAPPER -->
+    <section class="about-section">
+      <!-- Heading -->
+      <div class="about-heading-wrapper">
+        <h1 class="about-heading">
+          <span class="about-heading-red">ABOUT</span>
+          <span class="about-heading-text">THE COMPANY</span>
+        </h1>
       </div>
 
-      <!-- Safety -->
-      <div class="feature-card">
-        <img src="img/Safety.jpg" alt="Safety" />
-        <div class="feature-overlay"></div>
-        <div class="feature-content">
-          <h2 class="feature-title">SAFETY</h2>
-          <p class="feature-description">
-            Tested for safety. The material is easy to assemble and is made with
-            a high load bearing capacity.
-          </p>
-        </div>
-      </div>
+      <!-- IMAGE STACK -->
+      <div class="about-images-container">
+        <!-- ABOUT IMAGE -->
+        <div class="about-image-wrapper">
+          <img
+            src="img/AboutCompany.png"
+            class="about-image"
+            alt="About Company"
+          />
 
-      <!-- 360 Degree Approach -->
-      <div class="feature-card">
-        <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400"
-          alt="360 Degree Approach"
-        />
-        <div class="feature-overlay"></div>
-        <div class="feature-content">
-          <h2 class="feature-title">360 DEGREE<br />APPROACH</h2>
-          <p class="feature-description">
-            Pune Scaffolding provides end to end support through the
-            construction process. The material comes with proper documentation
-            to help understand the usage. Technical consultation for proper
-            application and execution is also provided by Pune Scaffolding.
-          </p>
+          <!-- ABOUT TEXT OVER IMAGE -->
+          <div class="about-text-overlay">
+            <p>
+              A backbone of real estate industry, scaffolding is the unsung hero
+              that ensures safety and smooth execution of any construction.
+              Scaffolding has evolved from the use of wood and bamboo to high
+              quality metal fittings, platforms and pipes. And with a vision to
+              provide superior quality scaffolding that meets highest safety
+              standards. Pune Scaffolding was incepted. Catering to some
+              esteemed names of construction industry, Pune Scaffolding is now a
+              respectable organization known for quality products and services.
+              From undertaking turnkey projects to supply scaffolding equipment
+              to consulting and assembling it, Pune Scaffolding ensures that it
+              adheres to highest standards of safety, quality and service.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Certifications -->
-      <div class="feature-card">
-        <img
-          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400"
-          alt="Certifications"
-        />
-        <div class="feature-overlay"></div>
-        <div class="feature-content">
-          <h2 class="feature-title">CERTIFI-<br />CATIONS</h2>
-          <p class="feature-description">
-            Pune Scaffolding is authorised to issue safety certificate to
-            construction site post inspection.
-          </p>
-        </div>
-      </div>
+        <!-- BLACK STRIP (WIDER THAN IMAGE) -->
+        <div class="black-strip"></div>
 
-      <!-- No Maintenance -->
-      <div class="feature-card">
-        <img
-          src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400"
-          alt="No Maintenance"
-        />
-        <div class="feature-overlay"></div>
-        <div class="feature-content">
-          <h2 class="feature-title">NO<br />MAINTENANCE</h2>
-          <p class="feature-description">
-            Maintenance of all the material is taken care of and the equipment
-            is tested from time to time to ensure the quality and safety
-            standards.
-          </p>
+        <!-- RIGHT CHOICE IMAGE -->
+        <div class="right-choice-wrapper">
+          <!-- Text overlay -->
+          <div class="right-choice-text">
+            <h2 class="right-choice-heading">
+              <span class="choice-line1">WHAT MAKES</span><br />
+              <span class="choice-line2">PUNE SCAFFOLDING</span><br />
+              <span class="choice-line3">THE RIGHT CHOICE?</span>
+            </h2>
+          </div>
+
+          <img
+            src="img/RightChoice.jpg"
+            class="right-choice-image"
+            alt="Right Choice"
+          />
         </div>
       </div>
-    </div>
+    </section>
   </body>
 </html>
