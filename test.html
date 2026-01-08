@@ -3,53 +3,252 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About The Company - Scaffolding Services</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Responsive Features</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #f5f5f5;
+        padding: 20px;
+      }
+
+      .features-container {
+        position: relative;
+        top: 52px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .feature-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        height: 400px;
+      }
+
+      .feature-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 0.7)
+        );
+        transition: background 0.3s ease;
+      }
+
+      .feature-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 25px;
+        color: white;
+        z-index: 2;
+      }
+
+      .feature-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+
+      .feature-description {
+        font-size: 13px;
+        line-height: 1.6;
+        opacity: 0.95;
+      }
+
+      .feature-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .feature-card:hover .feature-overlay {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.8)
+        );
+      }
+
+      /* Tablet - 3 columns */
+      @media (max-width: 1024px) {
+        .features-container {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 15px;
+          top: 30px;
+        }
+
+        .feature-card {
+          height: 350px;
+        }
+
+        .feature-title {
+          font-size: 18px;
+        }
+
+        .feature-description {
+          font-size: 12px;
+        }
+      }
+
+      /* Mobile - 2 columns */
+      @media (max-width: 768px) {
+        .features-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+          top: 20px;
+        }
+
+        .feature-card {
+          height: 300px;
+        }
+
+        .feature-content {
+          padding: 20px;
+        }
+
+        .feature-title {
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+
+        .feature-description {
+          font-size: 11px;
+          line-height: 1.5;
+        }
+      }
+
+      /* Small Mobile - 1 column */
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        .features-container {
+          grid-template-columns: 1fr;
+          gap: 15px;
+          top: 10px;
+        }
+
+        .feature-card {
+          height: 280px;
+        }
+
+        .feature-content {
+          padding: 18px;
+        }
+
+        .feature-title {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+
+        .feature-description {
+          font-size: 13px;
+          line-height: 1.6;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <div class="content-wrapper">
-        <div class="header-section">
-          <div class="header-text">
-            <span class="about-text">ABOUT</span>
-            <span class="company-text">THE COMPANY</span>
-          </div>
+    <div class="features-container">
+      <!-- Quality -->
+      <div class="feature-card">
+        <img src="img/Quality.jpg" alt="Quality" />
+        <div class="feature-overlay"></div>
+        <div class="feature-content">
+          <h2 class="feature-title">QUALITY</h2>
+          <p class="feature-description">
+            Made with superior quality steel, all the material is sturdy, safe
+            and easy to install.
+          </p>
         </div>
+      </div>
 
-        <div class="main-content">
-          <div class="text-content">
-            <p>
-              A backbone of real estate industry, scaffolding is the unsung hero
-              that ensures safety and smooth execution of any construction.
-              Scaffolding has evolved from the use of wood and bamboo to
-              sophisticated metal fittings, platforms and pipes. And with a
-              vision to provide superior quality scaffolding that meets highest
-              safety standards, Pune Scaffolding was incepted.
-            </p>
+      <!-- Safety -->
+      <div class="feature-card">
+        <img src="img/Safety.jpg" alt="Safety" />
+        <div class="feature-overlay"></div>
+        <div class="feature-content">
+          <h2 class="feature-title">SAFETY</h2>
+          <p class="feature-description">
+            Tested for safety. The material is easy to assemble and is made with
+            a high load bearing capacity.
+          </p>
+        </div>
+      </div>
 
-            <p>
-              Among the most esteemed names of construction industry, Pune
-              Scaffolding is now a respectable organization known for quality
-              products and services. From undertaking turnkey projects to supply
-              scaffolding equipment to consulting and assembling it on site,
-              Pune Scaffolding does it all adheres to highest standards of
-              safety, quality and service.
-            </p>
-          </div>
+      <!-- 360 Degree Approach -->
+      <div class="feature-card">
+        <img
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400"
+          alt="360 Degree Approach"
+        />
+        <div class="feature-overlay"></div>
+        <div class="feature-content">
+          <h2 class="feature-title">360 DEGREE<br />APPROACH</h2>
+          <p class="feature-description">
+            Pune Scaffolding provides end to end support through the
+            construction process. The material comes with proper documentation
+            to help understand the usage. Technical consultation for proper
+            application and execution is also provided by Pune Scaffolding.
+          </p>
+        </div>
+      </div>
 
-          <div class="image-content">
-            <img
-              src="https://images.pexels.com/photos/18110322/pexels-photo-18110322.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-              width="433"
-              height="650"
-              alt="Construction scaffolding structure"
-              class="scaffolding-image"
-            />
-          </div>
+      <!-- Certifications -->
+      <div class="feature-card">
+        <img
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400"
+          alt="Certifications"
+        />
+        <div class="feature-overlay"></div>
+        <div class="feature-content">
+          <h2 class="feature-title">CERTIFI-<br />CATIONS</h2>
+          <p class="feature-description">
+            Pune Scaffolding is authorised to issue safety certificate to
+            construction site post inspection.
+          </p>
+        </div>
+      </div>
+
+      <!-- No Maintenance -->
+      <div class="feature-card">
+        <img
+          src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400"
+          alt="No Maintenance"
+        />
+        <div class="feature-overlay"></div>
+        <div class="feature-content">
+          <h2 class="feature-title">NO<br />MAINTENANCE</h2>
+          <p class="feature-description">
+            Maintenance of all the material is taken care of and the equipment
+            is tested from time to time to ensure the quality and safety
+            standards.
+          </p>
         </div>
       </div>
     </div>
-
-    <script src="script.js"></script>
   </body>
 </html>
